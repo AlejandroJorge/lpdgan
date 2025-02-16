@@ -13,8 +13,8 @@ def get_transforms(size):
             }
 
     aug_fn = augs['geometric']
-    crop_fn = {'random': albu.RandomCrop(size, size, always_apply=True),
-               'center': albu.CenterCrop(size, size, always_apply=True)}['random']
+    crop_fn = {'random': albu.RandomCrop(height=size[0], width=size[1], always_apply=True),
+               'center': albu.CenterCrop(height=size[0], width=size[1], always_apply=True)}['random']
 
     effect = albu.OneOf([albu.MotionBlur(blur_limit=21, always_apply=True),
                          albu.RandomRain(always_apply=True),
