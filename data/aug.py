@@ -13,9 +13,30 @@ def get_transforms(height, width):
             }
 
     aug_fn = augs['geometric']
-    print('SO DONE',height, width)
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print(height,width)
     crop_fn = {'random': albu.RandomCrop(height=height, width=width, p=1.0),
                'center': albu.CenterCrop(height=height, width=width, p=1.0)}['random']
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
+    print("HOLAAAAAAAAAAAAAAAAAAAAA")
 
     effect = albu.OneOf([albu.MotionBlur(blur_limit=21, p=1.0),
                          albu.RandomRain(p=1.0),
