@@ -74,7 +74,7 @@ class LPBlurDataset(Dataset):
             plate_info = self.txt[os.path.basename(self.sharp[idx])]
             print(f'Plate info: {plate_info}') # REMOVE
             try:
-                plate_info = np.fromstring('1 2 3 4', sep=' ') # REMOVE PLEASE TODO
+                plate_info = np.fromstring('1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L', sep=' ') # REMOVE PLEASE TODO
                 print(f'Converted plate_info shape: {plate_info.shape}') # REMOVE
 
             except (SyntaxError, ValueError) as e:
