@@ -26,10 +26,10 @@ class LPBlurDataset(Dataset):
             df = pd.read_csv(os.path.join(opt.dataroot, 'plate_info.txt'), header=None,
                              names=['ImageName', 'PlateInfo'])
             self.txt = df.set_index('ImageName')['PlateInfo'].to_dict()
-            self.transform_fn = aug.get_transforms(112, 224)
-            self.transform_fn1 = aug.get_transforms(56, 112)
-            self.transform_fn2 = aug.get_transforms(28, 56)
-            self.transform_fn3 = aug.get_transforms(14, 28)
+            self.transform_fn = aug.get_transforms(size=(112, 224))
+            self.transform_fn1 = aug.get_transforms(size=(56, 112))
+            self.transform_fn2 = aug.get_transforms(size=(28, 56))
+            self.transform_fn3 = aug.get_transforms(size=(14, 28))
 
         else:
             self.transform_fn = aug.get_transforms_fortest(size=(112, 224))
