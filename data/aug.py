@@ -13,6 +13,7 @@ def get_transforms(height, width):
             }
 
     aug_fn = augs['geometric']
+    print('SO DONE',height, width)
     crop_fn = {'random': albu.RandomCrop(height=height, width=width, p=1.0),
                'center': albu.CenterCrop(height=height, width=width, p=1.0)}['random']
 
