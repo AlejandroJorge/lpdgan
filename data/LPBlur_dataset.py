@@ -25,6 +25,7 @@ class LPBlurDataset(Dataset):
         if self.opt.mode == 'train':
             df = pd.read_csv(os.path.join(opt.dataroot, 'plate_info.txt'), header=None,
                              names=['ImageName', 'PlateInfo'])
+            print(f'Plate info: {df.head()}') # REMOVE
             self.txt = df.set_index('ImageName')['PlateInfo'].to_dict()
             self.transform_fn = aug.get_transforms(size=(112, 224))
             self.transform_fn1 = aug.get_transforms(size=(56, 112))
@@ -44,6 +45,7 @@ class LPBlurDataset(Dataset):
         return len(self.blur)
 
     def __getitem__(self, idx):
+        print(f'Processing index {idx}') # REMOVE
         blur_image = Image.open(self.blur[idx])
         sharp_image = Image.open(self.sharp[idx])
         blur_image = np.array(blur_image)
@@ -70,8 +72,10 @@ class LPBlurDataset(Dataset):
 
         if self.opt.mode == 'train':
             plate_info = self.txt[os.path.basename(self.sharp[idx])]
+            print(f'Plate info: {plate_info}') # REMOVE
             try:
                 plate_info = np.fromstring(plate_info, sep=' ')
+                print(f'Converted plate_info shape: {plate_info.shape}') # REMOVE
 
             except (SyntaxError, ValueError) as e:
                 print(f"Error restoring array: {e}")

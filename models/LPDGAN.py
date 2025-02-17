@@ -89,8 +89,6 @@ class LPDGAN(nn.Module):
         self.fake_B_split = torch.chunk(self.fake_B, 7, dim=3)
         self.real_B_split = torch.chunk(self.real_B, 7, dim=3)
         self.real_A_split = torch.chunk(self.real_A, 7, dim=3)
-        print("Plate1 shape:", self.plate1.shape) # REMOVE
-        print("Plate2 shape:", self.plate2.shape) # REMOVE
 
     def set_requires_grad(self, nets, requires_grad=False):
         if not isinstance(nets, list):
@@ -203,7 +201,6 @@ class LPDGAN(nn.Module):
 
         self.loss_P_loss = (loss_P_loss + loss_P_loss1 + loss_P_loss2 + loss_P_loss3) / 4 * 0.01
 
-        print(self.plate_info.shape)
         self.loss_PlateNum_L1 = (self.criterionL1(self.plate1, self.plate_info) + self.criterionL1(self.plate2,
                                                                                                    self.plate_info)) / 2 * 0.01
 
